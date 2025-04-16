@@ -115,6 +115,7 @@ for index, platz in enumerate(seats):
             success = reserve_time_slot(platz.Platznummer, start_str, end_str, ausgewähltes_datum, st.session_state["user_email"])
             if success:
                 st.success(f"✅ Reservierung erfolgreich: {start_str} – {end_str} am {ausgewähltes_datum}")
+                st.rerun()
                 sende_bestaetigungsmail(
                     empfaenger_email=st.session_state["user_email"],
                     platznummer=platz.Platznummer,

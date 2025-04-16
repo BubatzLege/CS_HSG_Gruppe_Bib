@@ -4,4 +4,6 @@ sqlalchemy
 pandas
 matplotlib
 seaborn
-scikit-learn
+scikit-
+datetime
+plotly.express

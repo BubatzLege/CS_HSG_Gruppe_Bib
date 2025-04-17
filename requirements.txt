@@ -7,3 +7,6 @@ seaborn
 scikit-learn
 plotly
 bcrypt
+smtplib
+apscheduler
+apscheduler.scheduler.background

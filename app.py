@@ -5,6 +5,7 @@ from data_visualization import create_reservation_dataframe
 import plotly.express as px
 from mailing import sende_bestaetigungsmail
 from api_client import authenticate_user
+from data_cleanup import clean_old_reservations
 st.set_page_config(layout="wide")
 #Github Copilot für die Kommentierung des Codes.
 
@@ -27,6 +28,9 @@ if "user_email" not in st.session_state:
 
 if "user_email" not in st.session_state:
     st.stop()
+
+#Bereinigung der Datenbank nach bereits vergangenen Reservierungen#
+clean_old_reservations()
 
 st.title("📚 Sitzplatz-Reservierung – HSG Bibliothek")
 
@@ -124,7 +128,7 @@ for index, platz in enumerate(seats):
                     endzeit=end_str
                 )
                 st.info("📧 Bestätigung wurde per Mail gesendet.")
-                st.rerun()
+                
             else:
                 st.error("⚠️ Zeitraum bereits reserviert!")
 
